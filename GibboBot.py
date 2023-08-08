@@ -20,14 +20,15 @@ def index():
 @app.route("/Hela")
 def hela():
     message = request.args.get('message')
-
+    print(message);
+    
     data = a_hela(message)
-    message = data['replies'][0]['text']
+    ms = data['replies'][0]['text']
     name = data['src_char']['participant']['name']
 
-    rp = {"rply": message}
+    rp = {"rply": ms}
     response = requests.post(url, json=rp)
-    return message
+    return ms
 
 
 if __name__ == "__main__":
