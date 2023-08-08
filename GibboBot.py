@@ -10,10 +10,6 @@ app = Flask(__name__)
 
 client_hela = PyAsyncCAI('aciHa-7oXJih543TrBrR-O_PiZN-8lrdb9s4Bb6_73Q')
 
-async def a_hela(m):
-    await client_hela.start()
-    return await client_hela.chat.send_message('CHAR', m)
-
 @app.route("/")
 def index():
     return "OK"
@@ -22,13 +18,12 @@ def index():
 def hela():
     message = request.args.get('message')
     print(message);
+    client_hela.start()
     
-    data = a_hela(message)
+    data = client_hela.chat.send_message('CHAR', message)
     ms = data['replies'][0]['text']
-    name = data['src_char']['participant']['name']
-
-    rp = {"rply": ms}
-    response = requests.post(url, json=rp)
+    
+    response = requests.post(url, json={"rply": ms})
     return ms
 
 
