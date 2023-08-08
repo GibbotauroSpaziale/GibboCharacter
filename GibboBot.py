@@ -15,7 +15,7 @@ async def asyncHela(message):
     data = await client.chat.send_message('CHAR', message)
     print("response: ", data)
     
-    return jsonify(data), 200
+    return "ok", 200
 
 @app.route("/")
 def index():
