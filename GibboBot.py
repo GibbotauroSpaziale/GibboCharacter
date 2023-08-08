@@ -23,11 +23,7 @@ def index():
 @app.route("/Hela")
 def hela():
     message = request.args.get('message')
-
-    ms = asyncHela(message)
+    return asyncHela(message)
     
-    response = requests.post(url, json={"rply": ms})
-    return ms
-
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=3000, debug=True)
