@@ -24,8 +24,7 @@ def hela():
     data = a_hela(message)
     message = data['replies'][0]['text']
     name = data['src_char']['participant']['name']
-    
-    url = "https://api.mixitupapp.com/api/webhook/901c6ed5-ccf4-46cf-c5fe-08db11eb059d?secret=AEECC476EE3789E59BED5404E78210A8CE4474FFE8E9AB6D398C64E01E31F4D2"
+
     rp = {"rply": message}
     response = requests.post(url, json=rp)
     return message
