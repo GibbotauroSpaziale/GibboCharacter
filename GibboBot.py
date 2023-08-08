@@ -19,7 +19,7 @@ def index():
 
 @app.route("/Hela")
 def hela():
-    message = request.args.get('message')
+    message = request.GET.get()
     print(message);
     
     data = a_hela(message)
