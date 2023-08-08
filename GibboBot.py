@@ -20,7 +20,8 @@ def index():
 
 @app.route("/Hela")
 def hela():
-    message = request.GET.get()
+    parsed = urlparse.urlparse(request)
+    message = urlparse.parse_qs(parsed.query)['some_key'][0]
     print(message);
     
     data = a_hela(message)
