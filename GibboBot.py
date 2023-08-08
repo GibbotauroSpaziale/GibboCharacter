@@ -13,9 +13,9 @@ async def asyncHela(message):
     await client_hela.start()
     
     data = await client.chat.send_message('CHAR', message)
-    print("response: ", data)
-    
-    return "ok", 200
+    m = data['replies'][0]['text']
+    print("message", m)
+    return m
 
 @app.route("/")
 def index():
