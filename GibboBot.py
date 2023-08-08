@@ -8,7 +8,13 @@ from characterai import PyAsyncCAI
 
 app = Flask(__name__)
 
-client_hela = PyAsyncCAI('aciHa-7oXJih543TrBrR-O_PiZN-8lrdb9s4Bb6_73Q')
+async def asyncHela(message):
+    client_hela = PyAsyncCAI('aciHa-7oXJih543TrBrR-O_PiZN-8lrdb9s4Bb6_73Q')
+    await client_hela.start()
+    
+    data = await client.chat.send_message('CHAR', message)
+    return message = data['replies'][0]['text']
+
 
 @app.route("/")
 def index():
@@ -16,17 +22,12 @@ def index():
 
 @app.route("/Hela")
 def hela():
-    client_hela.start()
     message = request.args.get('message')
-    print("message: ",message);
-    
-    data = client_hela.chat.send_message('CHAR', message)
-    print("data: ",data);
-    ms = data['replies'][0]['text']
+
+    ms = asyncHela(message)
     
     response = requests.post(url, json={"rply": ms})
     return ms
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=3000, debug=True)
