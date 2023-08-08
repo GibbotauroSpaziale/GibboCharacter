@@ -7,7 +7,7 @@ from characterai import PyAsyncCAI
 
 app = Flask(__name__)
 
-client_hela = PyAsyncCAI('TOKEN')
+client_hela = PyAsyncCAI('aciHa-7oXJih543TrBrR-O_PiZN-8lrdb9s4Bb6_73Q')
 
 async def a_hela(m):
     await client_hela.start()
