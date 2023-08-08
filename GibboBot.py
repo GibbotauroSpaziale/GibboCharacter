@@ -16,11 +16,12 @@ def index():
 
 @app.route("/Hela")
 def hela():
+    client_hela.start()
     message = request.args.get('message')
     print("message: ",message);
     
     data = client_hela.chat.send_message('CHAR', message)
-    print("data",data);
+    print("data: ",data);
     ms = data['replies'][0]['text']
     
     response = requests.post(url, json={"rply": ms})
