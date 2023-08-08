@@ -28,4 +28,5 @@ def hela():
     return asyncHela(message)
     
 if __name__ == "__main__":
+    asyncio.run(asyncHela())
     app.run(host='0.0.0.0', port=3000, debug=True)
