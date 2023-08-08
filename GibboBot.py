@@ -18,7 +18,6 @@ def index():
 def hela():
     message = request.args.get('message')
     print("message: ",message);
-    client_hela.start()
     
     data = client_hela.chat.send_message('CHAR', message)
     print("data",data);
