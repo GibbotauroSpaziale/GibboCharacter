@@ -21,7 +21,7 @@ def hela():
     client_hela.start()
     
     data = client_hela.chat.send_message('CHAR', message)
-    print(data);
+    print("data",data);
     ms = data['replies'][0]['text']
     
     response = requests.post(url, json={"rply": ms})
