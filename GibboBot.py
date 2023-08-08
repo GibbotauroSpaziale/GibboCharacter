@@ -13,7 +13,7 @@ async def asyncHela(message):
     await client_hela.start()
     
     data = await client.chat.send_message('CHAR', message)
-    return message = data['replies'][0]['text']
+    return data['replies'][0]['text']
 
 
 @app.route("/")
