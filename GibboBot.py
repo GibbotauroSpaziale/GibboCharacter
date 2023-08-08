@@ -11,7 +11,7 @@ app = Flask(__name__)
 async def asyncHela(message):
     client_hela = PyAsyncCAI('aciHa-7oXJih543TrBrR-O_PiZN-8lrdb9s4Bb6_73Q')
     await client_hela.start()
-    
+    print("message", message)
     data = await client.chat.send_message('CHAR', message)
     m = data['replies'][0]['text']
     print("message", m)
@@ -24,7 +24,7 @@ def index():
 @app.route("/Hela")
 def hela():
     message = request.args.get('message')
-    print("message", message)
+    
     return asyncHela(message)
     
 if __name__ == "__main__":
