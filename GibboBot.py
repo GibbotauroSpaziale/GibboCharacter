@@ -24,6 +24,7 @@ def index():
 @app.route("/Hela")
 def hela():
     message = request.args.get('message')
+    print("message", message)
     return asyncHela(message)
     
 if __name__ == "__main__":
