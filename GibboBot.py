@@ -1,6 +1,6 @@
 import json
 import requests
-import urlparse
+import urllib
 from time import sleep 
 from flask import Flask, request
 import asyncio
