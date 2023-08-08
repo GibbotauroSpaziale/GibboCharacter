@@ -15,7 +15,7 @@ async def a_hela(m):
 
 @app.route("/")
 def index():
-    return ""
+    return "OK"
 
 @app.route("/Hela")
 def hela():
